@@ -15,6 +15,7 @@ namespace HopamModel
 		public virtual string Tone { get; set; }
 		public virtual string Rhythm { get; set; }
 		public virtual string Body { get; set; }
+		public virtual string CreatedBy { get; set; }
 		public virtual int NumberView { get; set; }
 	}
 }

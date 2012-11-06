@@ -1,0 +1,121 @@
+﻿@model IEnumerable<HopamModel.Song>
+@{
+    ViewBag.Title = "Hopam Reader";
+}
+
+<style type="text/css">
+    #SongDiv
+    {
+        overflow-y: hidden;
+        font-size: large;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        width: 100%;
+    }
+
+    .HAClass
+    {
+        color: #ff6a00;
+    }
+
+    #SongSelector
+    {
+        width: 100%;
+    }
+
+    #keyNote
+    {
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        border-radius: 5px;
+        -moz-background-clip: padding;
+        -webkit-background-clip: padding-box;
+        background-clip: padding-box;
+        border: 1px solid #aaaaaa;
+        -webkit-box-shadow: 0 0 3px #ffffff inset, 0 1px 1px rgba(0,0,0,0.1);
+        -moz-box-shadow: 0 0 3px #ffffff inset, 0 1px 1px rgba(0,0,0,0.1);
+        box-shadow: 0 0 3px #ffffff inset, 0 1px 1px rgba(0,0,0,0.1);
+        display: block;
+        white-space: nowrap;
+        position: relative;
+        height: 23px;
+        line-height: 24px;
+        padding: 0 0 0 8px;
+        color: #999;
+        font-size: medium;
+        text-decoration: none;
+        background: transparent;
+    }
+</style>
+
+<div style="background-color: #312e2e; color: #fff;">
+    <table style="width: 100%">
+        <tr>
+            <td colspan="3">
+                @{
+                    List<SelectListItem> songList = new List<SelectListItem>();
+                    foreach (var item in Model)
+                    {
+                        SelectListItem sli = new SelectListItem();
+                        sli.Text = item.Title;
+                        sli.Value = item.ID.ToString();
+                        songList.Add(sli);
+                    }
+                    @Html.DropDownList("SongSelector", songList, string.Empty);
+                }
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <div id="SongDiv">
+                    <br />
+                    <br />
+                    <p id="SongTxt"></p>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 120px">
+                <ul id="icons" class="ui-widget ui-helper-clearfix">
+                    <li class="ui-state-default ui-corner-all" title="4/4"><span id="TempoType" class="ui-icon ui-icon-signal-diag"></span></li>
+                    <li class="ui-state-default ui-corner-all" title="play"><span id="PlayBtn" class="ui-icon ui-icon-play"></span></li>
+                    <li class="ui-state-default ui-corner-all" title="pause"><span id="PauseBtn" class="ui-icon ui-icon-pause"></span></li>
+                    <li class="ui-state-default ui-corner-all" title="restart"><span id="RestartBtn" class="ui-icon ui-icon-arrowreturnthick-1-n"></span></li>
+                </ul>
+            </td>
+            <td style="width: 35px">
+                <select title="chuyễn hợp âm" id="keyNote"></select>
+            </td>
+            <td>
+                <div id="slider"></div>
+            </td>
+        </tr>
+    </table>
+</div>
+<audio id="Audio1">
+    <source src="~/Sounds/FHAT.wav" type="audio/wav">
+</audio>
+<audio id="Audio2">
+    <source src="~/Sounds/D_KICK_02.wav" type="audio/wav">
+</audio>
+
+@section scripts{
+    <script src="~/Scripts/hopam-reader.js"></script>
+    <script>
+        var songServer = (function () {
+            var songApiUrl = '@Url.RouteUrl("DefaultApi", new { httproute="", controller = "songservice" })';
+            $(document).ajaxError(function (event, xhr) {
+                alert(xhr.status + ":" + xhr.statusText);
+            });
+
+            var getSong = function (id) {
+                return $.getJSON(songApiUrl + "/" + id);
+            };
+
+            return {
+                getSong: getSong
+            };
+
+        }());
+    </script>
+}

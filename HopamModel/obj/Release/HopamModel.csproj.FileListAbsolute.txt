@@ -2,3 +2,4 @@ C:\TempSPI\HopamReader\HopamModel\bin\Release\HopamModel.dll
 C:\TempSPI\HopamReader\HopamModel\bin\Release\HopamModel.pdb
 C:\TempSPI\HopamReader\HopamModel\obj\Release\HopamModel.dll
 C:\TempSPI\HopamReader\HopamModel\obj\Release\HopamModel.pdb
+C:\TempSPI\HopamReader\HopamModel\obj\Release\HopamModel.csprojResolveAssemblyReference.cache

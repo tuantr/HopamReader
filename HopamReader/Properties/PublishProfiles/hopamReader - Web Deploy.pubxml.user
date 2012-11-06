@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit http://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <LastUsedBuildConfiguration>Debug</LastUsedBuildConfiguration>
+    <LastUsedPlatform>Any CPU</LastUsedPlatform>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAmUYqPd3kx0+kKGWpXt3eTQAAAAACAAAAAAAQZgAAAAEAACAAAAAMh+gNay76Zq6Zgyi745FIXrlg+G6rC0xXVHcLtF9dlQAAAAAOgAAAAAIAACAAAAAHn1K0WMSHelMTefFABtbEerySQkSk+TeCXf3wJBYVhYAAAAAgvuvLHu2KXx1jTV4HmBfGcmUNSqhb44e/CWpF7WoBr9bILjx8QY9+Z0NOtqWLlXhx3m3wp/BSKb83JMUCsty1CpwZtt7XaoUKQfVGFybBY+xKl8kbdmM/bEe4I+qIOegUW6xnnbK+Bo9p/0f0NDK2S+qecZ+NJzEo9epzpUrcOEAAAACiDjyXYnQ8K6ma7vGKVm8dM5wI3Vooprlh1fr/18YvHlS7sJfeMk2N15ftZCP0fxXmkLhYsWZO0eDN/4/U71CB</EncryptedPassword>
+    <AzureDBConnectionString>Data Source=tcp:bq42xjddef.database.windows.net,1433;Initial Catalog=hopamReader_db;User Id=hopamReader@bq42xjddef;Password=LoiYeuThu0ng;</AzureDBConnectionString>
+  </PropertyGroup>
+</Project>

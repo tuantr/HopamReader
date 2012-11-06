@@ -20,5 +20,10 @@ namespace HopamReader.Controllers
 		{	
 			return View(_db.Songs);
 		}
+
+		public ActionResult About()
+		{
+			return View();
+		}
 	}
 }

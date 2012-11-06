@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 using HopamModel;
 using HopamReader.Infrastructure;
 using HopamReader.Models;
 
 namespace HopamReader.Controllers
 {
+	[Authorize(Roles = "User")]
     public class SongController : Controller
     {
 		private readonly ISongDataSource _db;
@@ -21,12 +23,12 @@ namespace HopamReader.Controllers
 		[HttpGet]
         public ActionResult AddSong()
         {
-			var allsongs = _db.Songs;
 			var model = new SongViewModel();
 			return View(model);
         }
 
 		[HttpPost]
+		[ValidateAntiForgeryToken]
 		public ActionResult AddSong(SongViewModel viewModel)
 		{
 			if (ModelState.IsValid)
@@ -40,11 +42,16 @@ namespace HopamReader.Controllers
 					song.Tone = viewModel.Tone;
 					song.Rhythm = viewModel.Rhythm;
 					song.Body = viewModel.Body;
+					song.CreatedBy = User.Identity.Name;
 
 					_db.AddSong(song);
 					_db.Save();
 
 					return RedirectToAction("index", "home");
+				}
+				else
+				{
+					ViewBag.Message = "Song already existed.";
 				}
 			}
 

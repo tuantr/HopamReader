@@ -85,6 +85,7 @@ namespace HopamReader.Controllers
 				// Attempt to register the user
 				MembershipCreateStatus createStatus;
 				Membership.CreateUser(model.UserName, model.Password, model.Email, passwordQuestion: null, passwordAnswer: null, isApproved: true, providerUserKey: null, status: out createStatus);
+				Roles.AddUserToRole(model.UserName, "User");
 
 				if (createStatus == MembershipCreateStatus.Success)
 				{

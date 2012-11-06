@@ -224,6 +224,8 @@
     <Content Include="Global.asax" />
     <Content Include="App_Readme\Handlebarsjs_README.md" />
     <Content Include="App_Readme\Handlebarsjs_LICENSE" />
+    <None Include="Properties\PublishProfiles\hopamReader - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\hopamReader - Web Deploy.pubxml" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js">
       <DependentUpon>jquery-1.8.2.js</DependentUpon>
@@ -253,7 +255,7 @@
     <Content Include="Scripts\knockout-2.0.0.debug.js" />
     <Content Include="Scripts\knockout-2.0.0.js" />
     <Content Include="Scripts\modernizr-2.0.6-development-only.js" />
-    <Content Include="Sounds\D_KICK_02.wav" />
+    <Content Include="Sounds\A_HAT_1.WAV" />
     <Content Include="Sounds\FHAT.wav" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -294,6 +296,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\Song\AddSong.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

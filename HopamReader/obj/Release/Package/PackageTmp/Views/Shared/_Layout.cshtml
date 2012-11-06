@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale-1" />
+    <title>Hopam Reader</title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width" />
+    @Styles.Render("~/Content/themes/base/css", "~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div>
+         <div class="float-left">
+                    <span style="color: #fff; margin: auto">
+            @Html.ActionLink("HopamReader.com", "Index", "Home") |
+            @Html.ActionLink("Add new", "AddSong", "Song")
+        </span>
+                </div>
+                <div class="float-right">
+                    <section id="login">
+                        @Html.Partial("_LoginPartial")
+                    </section>
+                </div>       
+    </div>
+    <div id="body">
+        @RenderSection("featured", required: false)
+        @RenderBody()
+    </div>
+    <div style="background-color: #312e2e; margin: 5px">
+        <span style="color: #fff; margin: auto">&copy; @DateTime.Now.Year - Tuan Truong
+            <a href="http://facebook.com">Facebook</a>
+        </span>
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryui")
+    @Scripts.Render("~/bundles/chosen")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
