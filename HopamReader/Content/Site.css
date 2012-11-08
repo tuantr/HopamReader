@@ -10,10 +10,52 @@ body
 	background-color: #312e2e;
 	border-top: solid 10px #000;
 	color: #999;
-	font-size: medium;
+	font-size: 1em;
 	font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
 	margin: 0;
 	padding: 0;
+}
+
+#SongDiv
+{
+	overflow-y: hidden;
+	font-size: 1em;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	width: 100%;
+}
+
+.HAClass
+{
+	color: #ff6a00;
+}
+
+#SongSelector
+{
+	width: 100%;
+}
+
+#keyNote
+{
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	-moz-background-clip: padding;
+	-webkit-background-clip: padding-box;
+	background-clip: padding-box;
+	border: 1px solid #aaaaaa;
+	-webkit-box-shadow: 0 0 3px #ffffff inset, 0 1px 1px rgba(0,0,0,0.1);
+	-moz-box-shadow: 0 0 3px #ffffff inset, 0 1px 1px rgba(0,0,0,0.1);
+	box-shadow: 0 0 3px #ffffff inset, 0 1px 1px rgba(0,0,0,0.1);
+	display: block;
+	white-space: nowrap;
+	position: relative;
+	width: 65px;
+	padding: 0 0 0 8px;
+	color: #999;
+	font-size: medium;
+	text-decoration: none;
+	background: transparent;
 }
 
 a
@@ -488,24 +530,23 @@ fieldset
 	fieldset input[type="submit"]
 	{
 		-webkit-border-radius: 5px;
-        -moz-border-radius: 5px;
-        border-radius: 5px;
-        -moz-background-clip: padding;
-        -webkit-background-clip: padding-box;
-        background-clip: padding-box;
-        border: 1px solid #aaaaaa;
-        -webkit-box-shadow: 0 0 3px #ffffff inset, 0 1px 1px rgba(0,0,0,0.1);
-        -moz-box-shadow: 0 0 3px #ffffff inset, 0 1px 1px rgba(0,0,0,0.1);
-        box-shadow: 0 0 3px #ffffff inset, 0 1px 1px rgba(0,0,0,0.1);
-        display: block;
-        white-space: nowrap;
-        position: relative;
-        padding: 0 0 0 8px;
-        color: #ff6a00;
-        text-decoration: none;
-        background: transparent;
-        height:30px;
-		
+		-moz-border-radius: 5px;
+		border-radius: 5px;
+		-moz-background-clip: padding;
+		-webkit-background-clip: padding-box;
+		background-clip: padding-box;
+		border: 1px solid #aaaaaa;
+		-webkit-box-shadow: 0 0 3px #ffffff inset, 0 1px 1px rgba(0,0,0,0.1);
+		-moz-box-shadow: 0 0 3px #ffffff inset, 0 1px 1px rgba(0,0,0,0.1);
+		box-shadow: 0 0 3px #ffffff inset, 0 1px 1px rgba(0,0,0,0.1);
+		display: block;
+		white-space: nowrap;
+		position: relative;
+		padding: 0 0 0 8px;
+		color: #ff6a00;
+		text-decoration: none;
+		background: transparent;
+		height: 30px;
 		/*border: 1px solid #999;
 		cursor: pointer;
 		font-weight: 600;

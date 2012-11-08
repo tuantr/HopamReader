@@ -2,3 +2,7 @@ C:\TempSPI\HopamReader\HopamModel\bin\Debug\HopamModel.dll
 C:\TempSPI\HopamReader\HopamModel\bin\Debug\HopamModel.pdb
 C:\TempSPI\HopamReader\HopamModel\obj\Debug\HopamModel.dll
 C:\TempSPI\HopamReader\HopamModel\obj\Debug\HopamModel.pdb
+D:\MyProjects\HopamReader\HopamModel\bin\Debug\HopamModel.dll
+D:\MyProjects\HopamReader\HopamModel\bin\Debug\HopamModel.pdb
+D:\MyProjects\HopamReader\HopamModel\obj\Debug\HopamModel.dll
+D:\MyProjects\HopamReader\HopamModel\obj\Debug\HopamModel.pdb

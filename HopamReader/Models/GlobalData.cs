@@ -13,6 +13,7 @@ namespace HopamReader.Models
 			public const string NhacTre = "Nhạc trẻ";
 			public const string NhacTruTinh = "Nhạc trữ tình";
 			public const string NhacTrinh = "Nhạc Trịnh";
+			public const string NhacQueHuong = "Nhạc Quê Hương";
 		}
 
 		public static class Tone
@@ -26,6 +27,8 @@ namespace HopamReader.Models
 			public const string Bolero = "Bolero";
 			public const string Blue = "Blue";
 			public const string Ballad = "Ballad";
+			public const string ChaCha = "ChaCha";
+			public const string Valse = "Valse";
 		}
 
 		public static class Rhythm
@@ -43,20 +46,24 @@ namespace HopamReader.Models
 		static GlobalData()
 		{
 			GenreList = new List<SelectListItem>();
+			GenreList.Add(new SelectListItem() { Text = Genre.NhacQueHuong, Value = Genre.NhacQueHuong });
 			GenreList.Add(new SelectListItem() { Text = Genre.NhacTre, Value = Genre.NhacTre });
-			GenreList.Add(new SelectListItem() { Text = Genre.NhacTruTinh, Value = Genre.NhacTruTinh });
 			GenreList.Add(new SelectListItem() { Text = Genre.NhacTrinh, Value = Genre.NhacTrinh });
+			GenreList.Add(new SelectListItem() { Text = Genre.NhacTruTinh, Value = Genre.NhacTruTinh });
+			
 
 			ToneList = new List<SelectListItem>();
 			ToneList.Add(new SelectListItem() { Text = Tone.Ballad, Value = Tone.Ballad });
 			ToneList.Add(new SelectListItem() { Text = Tone.Blue, Value = Tone.Blue });
 			ToneList.Add(new SelectListItem() { Text = Tone.Bolero, Value = Tone.Bolero });
+			ToneList.Add(new SelectListItem() { Text = Tone.ChaCha, Value = Tone.ChaCha });
 			ToneList.Add(new SelectListItem() { Text = Tone.Disco, Value = Tone.Disco });
 			ToneList.Add(new SelectListItem() { Text = Tone.Fox, Value = Tone.Fox });
 			ToneList.Add(new SelectListItem() { Text = Tone.Rumba, Value = Tone.Rumba });
 			ToneList.Add(new SelectListItem() { Text = Tone.Slow, Value = Tone.Slow });
 			ToneList.Add(new SelectListItem() { Text = Tone.SlowRock, Value = Tone.SlowRock });
 			ToneList.Add(new SelectListItem() { Text = Tone.Tango, Value = Tone.Tango });
+			ToneList.Add(new SelectListItem() { Text = Tone.Valse, Value = Tone.Valse });
 
 			RhythmList = new List<SelectListItem>();
 			RhythmList.Add(new SelectListItem() { Text = Rhythm.Nhip24, Value = Rhythm.Nhip24 });
