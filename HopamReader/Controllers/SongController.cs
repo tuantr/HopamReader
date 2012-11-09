@@ -51,7 +51,7 @@ namespace HopamReader.Controllers
 				}
 				else
 				{
-					ViewBag.Message = "Song already existed.";
+					ViewBag.Message = "Bản nhạc này đã có rồi.";
 				}
 			}
 
