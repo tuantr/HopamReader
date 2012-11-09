@@ -1,10 +1,10 @@
 ﻿@model HopamReader.Models.LoginModel
 
 @{
-    ViewBag.Title = "Log in";
+    ViewBag.Title = "Hợp âm Reader";
 }
 <br>
-<h3>Use this form to enter your user name and password.</h3>
+<h3>Login account của bạn để Add(+) thêm hợp âm / bản nhạc cho hopam reader.</h3>
 
 @using (Html.BeginForm(new { ReturnUrl = ViewBag.ReturnUrl })) {
     @Html.ValidationSummary(true, "Log in was unsuccessful. Please correct the errors and try again.")
@@ -28,7 +28,7 @@
         <input type="submit" value="Log in" />
     </fieldset>
     <p>
-        @Html.ActionLink("Register", "Register") if you don't have an account.
+        @Html.ActionLink("Register", "Register") tạo account miễn phí cho hopam reader.
     </p>
 }
 
