@@ -6,8 +6,9 @@
 <div style="background-color: #312e2e; color: #fff;">
     <table style="width: 100%">
         <tr>
-            <td colspan="6">
+            <td colspan="5">
                 @{
+                    string message = string.Empty;
                     List<SelectListItem> songList = new List<SelectListItem>();
                     foreach (var item in Model)
                     {
@@ -21,12 +22,12 @@
             </td>
         </tr>
         <tr>
-            <td colspan="6">
+            <td colspan="5">
                 <label id="SongInfo" style="color:#ff6a00"></label>
             </td>
         </tr>
         <tr>
-            <td colspan="6">
+            <td colspan="5">
                 <div id="SongDiv">
                     <br />
                     <span id="spanCounter"></span>
@@ -38,7 +39,7 @@
             </td>
         </tr>
         <tr>
-            <td style="width: 120px">
+            <td style="width: 110px">
                 <ul id="icons" class="ui-widget ui-helper-clearfix">
                     <li class="ui-state-default ui-corner-all" id="TempoTypeOff" title="off"><span class="ui-icon ui-icon-volume-off"></span></li>
                     <li class="ui-state-default ui-corner-all" id="TempoTypeOn" title="on"><span class="ui-icon ui-icon-volume-on"></span></li>
@@ -53,14 +54,11 @@
             <td style="width: 20px">
                 <input type="button" value="-" id="TempoMinus"/>
             </td>
-            <td style="width: 65px">
-                <label id="TempoVal" style="color:#ff6a00"></label> bpm
-            </td>
             <td style="width: 20px">
-                <input type="button" value="+" id="TempoPlus"/>
+                <label id="TempoVal" style="color:#ff6a00;"></label>
             </td>
             <td>
-                <div></div>
+                <input type="button" value="+" id="TempoPlus"/>
             </td>
         </tr>
     </table>

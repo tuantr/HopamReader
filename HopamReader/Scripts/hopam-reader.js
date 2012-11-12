@@ -7,8 +7,8 @@
     var hopAmTruongGiang = ['A', 'Bb', 'B', 'C', 'Db', 'D', 'Eb', 'E', 'F', 'Gb', 'G', 'Ab'];
     var hopAmThu = ['Am', 'A#m', 'Bm', 'Cm', 'C#m', 'Dm', 'D#m', 'Em', 'Fm', 'F#m', 'Gm', 'G#m'];
     var hopAmThuGiang = ['Am', 'Bbm', 'Bm', 'Cm', 'Dbm', 'Dm', 'Ebm', 'Em', 'Fm', 'Gbm', 'Gm', 'Abm'];
-    var tone80 = ["SlowRock", "Slow"];
-    var tone95 = ["Rumba", "Bolero", "Ballad", "Blue"];
+    var tone70 = ["SlowRock", "Slow"];
+    var tone90 = ["Rumba", "Bolero", "Ballad", "Blue"];
     var tone110 = ["Tango", "Disco", "Fox", "Valse", "ChaCha"];
     var oldHAIndex = 0;
     var playDelay = 1;
@@ -47,7 +47,7 @@
                 displayScale = viewportWidth / 480;
             }
             else if (isAndroid) {
-                displayScale = viewportHeight / 200;
+                displayScale = viewportHeight / 280;
                 viewportHeight = $(window).width();
                 viewportWidth = $(window).height();
             }
@@ -59,9 +59,12 @@
             displayScale = displayScale < 1 ? 1 : displayScale;
             $('#SongDiv').css('font-size', displayScale + 'em');
             $('#SongDiv').css('height', viewportHeight);
-            $('#SongDiv').css('width', viewportWidth);
+            //$('#SongDiv').css('width', viewportWidth);
 
-            $('#PauseBtn').click();
+            $('html, body').animate({
+                scrollTop: $('#SongDiv').offset().top
+            }, 1000);
+
             $('#PlayBtn').click();
         });
 
@@ -69,12 +72,12 @@
             displayScale = viewportWidth / 480;
         }
         else if (isAndroid) {
-            displayScale = viewportWidth / 200;
+            displayScale = viewportWidth / 280;
         }
     }
     else {
         // non-mobile
-        displayScale = viewportWidth / 480;
+        displayScale = viewportWidth / 640;
     }
 
     // set font-size for text
@@ -108,7 +111,7 @@
                 scrollTop: $('#SongDiv').offset().top
             }, 1000);
 
-            var sec = 5;
+            var sec = 3;
             $('#spanCounter').fadeIn('slow');
             var timer = setInterval(function () {
                 $('#spanCounter').text(sec--);
@@ -117,15 +120,22 @@
                     clearInterval(timer);
                 }
             }, 1000);
-            $('#SongDiv').delay(sec * 1500);
+            $('#SongDiv').delay(sec * 2000);
             playDelay = 0;
         }
 
         var contentHeight = $('#SongDiv')[0].scrollHeight;
+        var animateSpeed = 1;
+        if (jQuery.browser.mobile) {
+            animateSpeed = ((280 - tempoCurVal) * contentHeight) / (displayScale)
+        }
+        else {
+            animateSpeed = ((450 - tempoCurVal) * contentHeight) / (displayScale)
+        }
 
         $('#SongDiv').animate({
             scrollTop: contentHeight
-        }, ((300 - tempoCurVal) * contentHeight) / displayScale, 'linear', function () {
+        }, animateSpeed, 'linear', function () {
             // restart the player;
             $('#RestartBtn').click();
         });
@@ -283,7 +293,7 @@
             tempHA = hopAmThu[indextempHA];
         }
         else {
-            tempHA = HopAm + "_$$$";
+            tempHA = HopAm + "$";
         }
 
         if (matche != null) {
@@ -295,11 +305,11 @@
 
     // tim tone nhac
     function FindTone(tone) {
-        if (tone80.indexOf(tone) > -1) {
-            return 80;
+        if (tone70.indexOf(tone) > -1) {
+            return 70;
         }
-        else if (tone95.indexOf(tone) > -1) {
-            return 95;
+        else if (tone90.indexOf(tone) > -1) {
+            return 90;
         }
         else if (tone110.indexOf(tone) > -1) {
             return 110;
