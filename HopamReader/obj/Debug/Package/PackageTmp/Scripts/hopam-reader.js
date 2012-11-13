@@ -197,6 +197,16 @@
         }
     });
 
+    songServer.getAllSongs().done(function (songs) {
+        for (i = 0; i < songs.length; ++i) {
+            $('#SongSelector').append($('<option>', {
+                value: songs[i].ID,
+                text: songs[i].Title
+            }));
+        }
+        $('#SongSelector').chosen();
+    });
+
     $('#SongSelector').change(function () {
         var id = $(this).val();
         songServer.getSong(id).done(function (song) {
@@ -235,9 +245,7 @@
             $(this).text(ConvertHopAm(tempHA, keyToInc));
         });
         oldHAIndex = newHAIndex;
-    });
-
-    $('#SongSelector').chosen();
+    });   
 
     BuildKeyNoteDropDown('Am');
 

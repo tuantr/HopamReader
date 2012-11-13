@@ -8,6 +8,7 @@ using System.Web.Http;
 using System.Web.Mvc;
 using HopamModel;
 using HopamReader.Infrastructure;
+using HopamReader.Models;
 
 namespace HopamReader.Controllers
 {
@@ -22,9 +23,24 @@ namespace HopamReader.Controllers
 		}
 
         // GET api/songservice
-        public IEnumerable<Song> GetAllSongs()
+		public IEnumerable<SongViewModel> GetAllSongs()
         {
-			return db.Songs;
+			List<SongViewModel> model = new List<SongViewModel>();
+
+			var result =
+				from s in db.Songs
+				orderby s.ID descending
+				select new { s.ID, s.Title };
+
+			foreach (var item in result)
+			{
+				SongViewModel song = new SongViewModel();
+				song.ID = item.ID;
+				song.Title = item.Title;
+				model.Add(song);
+			}
+
+			return model;
         }
 
         // GET api/songservice/5

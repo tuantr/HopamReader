@@ -1,10 +1,12 @@
 namespace HopamReader.Migrations
 {
-    using System;
-    using System.Data.Entity;
-    using System.Data.Entity.Migrations;
-    using System.Linq;
+	using System;
+	using System.Data.Entity;
+	using System.Data.Entity.Migrations;
+	using System.Data.SqlClient;
+	using System.Linq;
 	using System.Web.Security;
+	using HopamModel;
 
     internal sealed class Configuration : DbMigrationsConfiguration<HopamReader.Infrastructure.SongDb>
     {
@@ -31,18 +33,36 @@ namespace HopamReader.Migrations
 				Roles.AddUserToRole("hopamAdmin", "Admin");
 			}
 
-            //  This method will be called after migrating to the latest version.
-
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
-            //  to avoid creating duplicate seed data. E.g.
-            //
-            //    context.People.AddOrUpdate(
-            //      p => p.FullName,
-            //      new Person { FullName = "Andrew Peters" },
-            //      new Person { FullName = "Brice Lambson" },
-            //      new Person { FullName = "Rowan Miller" }
-            //    );
-            //
+			//string azureConnectionString = "";
+			//string queryString = "SELECT * from dbo.Songs";
+			//using (SqlConnection connection =
+			//new SqlConnection(azureConnectionString))
+			//{
+			//	SqlCommand command = new SqlCommand(queryString, connection);
+			//	try
+			//	{
+			//		connection.Open();
+			//		SqlDataReader reader = command.ExecuteReader();
+			//		while (reader.Read())
+			//		{
+			//			context.Songs.AddOrUpdate(s => s.Title,
+			//				new Song
+			//				{
+			//					Title = reader[1].ToString(),
+			//					Writer = reader[2].ToString(),
+			//					Genre = reader[3].ToString(),
+			//					Tone = reader[4].ToString(),
+			//					Rhythm = reader[5].ToString(),
+			//					Body = reader[6].ToString(),
+			//					CreatedBy = reader[7].ToString()
+			//				});
+			//		}
+			//		reader.Close();
+			//	}
+			//	catch (Exception ex)
+			//	{
+			//	}
+			//}
         }
     }
 }

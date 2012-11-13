@@ -8,6 +8,8 @@ namespace HopamReader.Models
 {
 	public class SongViewModel
 	{
+		public int ID { get; set; }
+
 		[Required]
 		public string Title { get; set; }
 

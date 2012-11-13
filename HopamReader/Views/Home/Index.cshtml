@@ -1,4 +1,4 @@
-﻿@model IEnumerable<HopamModel.Song>
+﻿@*@model IEnumerable<HopamReader.Models.SongViewModel>*@
 @{
     ViewBag.Title = "Hopam Reader - Hợp âm Reader";
 }
@@ -7,7 +7,7 @@
     <table style="width: 100%">
         <tr>
             <td colspan="5">
-                @{
+               @* @{
                     string message = string.Empty;
                     List<SelectListItem> songList = new List<SelectListItem>();
                     foreach (var item in Model)
@@ -18,7 +18,10 @@
                         songList.Add(sli);
                     }
                     @Html.DropDownList("SongSelector", songList, string.Empty);
-                }
+                }*@
+                <select id="SongSelector">
+                    <option></option>
+                </select>
             </td>
         </tr>
         <tr>
@@ -71,7 +74,7 @@
 </audio>
 
 @section scripts{
-    <script src="~/Scripts/hopam-reader.js"></script>
+    <script src="~/Scripts/hopam.reader.min.js"></script>
     <script>
         var songServer = (function () {
             var songApiUrl = '@Url.RouteUrl("DefaultApi", new { httproute="", controller = "songservice" })';
@@ -83,8 +86,13 @@
                 return $.getJSON(songApiUrl + "/" + id);
             };
 
+            var getAllSongs = function () {
+                return $.getJSON(songApiUrl);
+            };
+
             return {
-                getSong: getSong
+                getSong: getSong,
+                getAllSongs: getAllSongs
             };
 
         }());
